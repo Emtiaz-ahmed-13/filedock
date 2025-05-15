@@ -1,18 +1,19 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
+import { signInSchema } from "@/schemas/signInSchema";
+import { useSignIn } from "@clerk/nextjs";
+import { Button } from "@heroui/button";
+import { Card, CardBody, CardFooter, CardHeader } from "@heroui/card";
+import { Divider } from "@heroui/divider";
+import { Input } from "@heroui/input";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { AlertCircle, Eye, EyeOff, Lock, Mail } from "lucide-react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useSignIn } from "@clerk/nextjs";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
 import { z } from "zod";
-import { Button } from "@heroui/button";
-import { Input } from "@heroui/input";
-import { Card, CardBody, CardHeader, CardFooter } from "@heroui/card";
-import { Divider } from "@heroui/divider";
-import { Mail, Lock, AlertCircle, Eye, EyeOff } from "lucide-react";
-import { signInSchema } from "@/schemas/signInSchema";
 
 export default function SignInForm() {
   const router = useRouter();
@@ -153,7 +154,7 @@ export default function SignInForm() {
 
       <CardFooter className="flex justify-center py-4">
         <p className="text-sm text-default-600">
-          Don't have an account?{" "}
+          Don not have have an account?{" "}
           <Link
             href="/sign-up"
             className="text-primary hover:underline font-medium"
