@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { signUpSchema } from "@/schemas/SignUpSchema";
+import { signUpSchema } from "@/schemas/signUpSchema";
 import { useSignUp } from "@clerk/nextjs";
 import { Button } from "@heroui/button";
 import { Card, CardBody, CardFooter, CardHeader } from "@heroui/card";
@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { SetStateAction, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -142,9 +142,7 @@ export default function SignUpForm() {
                 type="text"
                 placeholder="Enter the 6-digit code"
                 value={verificationCode}
-                onChange={(e: { target: { value: SetStateAction<string> } }) =>
-                  setVerificationCode(e.target.value)
-                }
+                onChange={(e) => setVerificationCode(e.target.value)}
                 className="w-full"
                 autoFocus
               />
@@ -162,7 +160,7 @@ export default function SignUpForm() {
 
           <div className="mt-6 text-center">
             <p className="text-sm text-default-500">
-              Did hot receive a code?{" "}
+              Did not receive a code?{" "}
               <button
                 onClick={async () => {
                   if (signUp) {
